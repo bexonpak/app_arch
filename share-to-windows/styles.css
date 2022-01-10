@@ -1,0 +1,198 @@
+html,
+body {
+    margin     : 0;
+    padding    : 0;
+    font-family: "SF Pro TC", "SF Pro Text", "SF Pro Icons", "PingFang TC", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+.icon-background {
+    border       : 1px #e5e5e5 solid;
+    border-radius: 40px;
+    width        : 123px;
+    height       : 123px;
+    display      : inline-block;
+}
+
+.icon {
+    display: inline-block;
+    margin : 32px 13px;
+}
+
+.title-block {
+    width         : 55.04975%;
+    max-width     : 55.04975%;
+    margin-left   : 3.28358%;
+    height        : 123px;
+    font-size     : 18px;
+    vertical-align: top !important;
+    display       : inline-block;
+    position      : relative;
+}
+
+.title {
+    display       : block;
+    font-size     : 18px;
+    margin        : 0;
+    margin-top    : 4px;
+    line-height   : 1.22226;
+    font-weight   : 600;
+    letter-spacing: .027em;
+    font-family   : "SF Pro Display", "SF Pro Icons", "Apple WebExp Icons Custom", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.sub-title {
+    margin-top    : 2px;
+    color         : #636366;
+    padding       : 0;
+    margin        : 0;
+    font-size     : 13px;
+    line-height   : 1.38462;
+    font-weight   : 400;
+    letter-spacing: -.005em;
+    font-family   : "SF Pro Text", "SF Pro Icons", "Apple WebExp Icons Custom", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.info {
+    min-width     : 87.5%;
+    display       : block;
+    padding-top   : 20px;
+    padding-bottom: 32px;
+    margin-left   : auto;
+    margin-right  : auto;
+    margin-top    : 24px;
+    width         : 87.5%;
+    box-sizing    : inherit;
+    transition    : opacity 250ms cubic-bezier(.21, .11, .18, 1);
+}
+
+.download>.alink {
+    font-size    : 13px;
+    color        : #fff;
+    display      : inline-block;
+    background   : #1f5baa;
+    padding      : 6px 10px;
+    border-radius: 13px;
+    position     : absolute;
+    bottom       : 4px;
+}
+
+.alink,
+.alink:visited {
+    color          : #0070c9;
+    text-decoration: none;
+}
+
+
+.clear {
+    clear: both;
+}
+
+.content {
+    border-top    : 1px solid #d6d6d6;
+    min-width     : 87.5%;
+    display       : block;
+    padding-bottom: 32px;
+    margin-left   : auto;
+    margin-right  : auto;
+    width         : 87.5%;
+    box-sizing    : inherit;
+    transition    : opacity 250ms cubic-bezier(.21, .11, .18, 1);
+}
+
+.screenshot {
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+    height    : 30px;
+    background: #2099f1;
+    padding   : 17px 0 21px;
+}
+
+.footer-content {
+    min-width     : 87.5%;
+    display       : block;
+    padding-bottom: 32px;
+    margin-left   : auto;
+    margin-right  : auto;
+    width         : 87.5%;
+    font-size     : 13px;
+    color         : #fff;
+}
+
+#action-bar {
+    display                : none;
+    height                 : 48px;
+    background             : rgba(255, 255, 255, 0.72);
+    position               : fixed;
+    top                    : 0;
+    z-index                : 999;
+    min-width              : 100%;
+    backdrop-filter        : saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom          : 1px rgba(0, 0, 0, .16) solid;
+}
+
+.action-bar-content {
+    min-width   : 87.5%;
+    display     : block;
+    margin-left : auto;
+    margin-right: auto;
+    width       : 87.5%;
+    font-size   : 19px;
+    line-height : 48px;
+    font-weight : 600;
+    color       : #000;
+}
+
+@media only screen and (min-width: 735px) {
+    .info {
+        display       : block;
+        padding-top   : 20px;
+        padding-bottom: 32px;
+        margin-left   : auto;
+        margin-right  : auto;
+        width         : 692px;
+        box-sizing    : inherit;
+        transition    : opacity 250ms cubic-bezier(.21, .11, .18, 1);
+    }
+
+    .title-block {
+        height: 212px;
+    }
+
+    .title {
+        margin-top    : 40px;
+        font-size     : 24px;
+        line-height   : 1.25;
+        font-weight   : 700;
+        letter-spacing: .023em;
+        font-family   : "SF Pro Display", "SF Pro Icons", "Apple WebExp Icons Custom", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .sub-title {
+        font-size     : 18px;
+        line-height   : 1.22226;
+        font-weight   : 400;
+        letter-spacing: .027em;
+        font-family   : "SF Pro Display", "SF Pro Icons", "Apple WebExp Icons Custom", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .icon-background {
+        border       : 1px #e5e5e5 solid;
+        border-radius: 40px;
+        width        : 212px;
+        height       : 212px;
+        float        : left;
+    }
+
+    .icon {
+        display: inline-block;
+        width  : 190px;
+        margin : 46px 13px;
+    }
+
+    .download>.alink {
+        bottom: 40px;
+    }
+}

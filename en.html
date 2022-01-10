@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN" dir="ltr" prefix="og: http://ogp.me/ns#">
+
+<head>
+    <meta name="theme-color" content="#ffeb00">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta charset="utf-8" />
+    <title>英文转换</title>
+    <style>
+        label,
+        textarea {
+            font-size: .8rem;
+            letter-spacing: 1px;
+        }
+
+        textarea {
+            padding: 10px;
+            max-width: 100%;
+            line-height: 1.5;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-shadow: 1px 1px 1px #999;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="text">Tell us your story:</label>
+    <textarea id="text" name="text" rows="5" cols="33" oninput="cover()" placeholder="Typing..."></textarea>
+
+    <label for="serif_normal">serif_normal:</label>
+    <textarea id="serif_normal" name="serif_normal" rows="5" cols="33" readonly></textarea>
+
+    <label for="serif_bold">serif_bold:</label>
+    <textarea id="serif_bold" name="serif_bold" rows="5" cols="33" readonly></textarea>
+
+    <label for="serif_italic">serif_italic:</label>
+    <textarea id="serif_italic" name="serif_italic" rows="5" cols="33" readonly></textarea>
+
+    <label for="serif_bold_italic">serif_bold_italic:</label>
+    <textarea id="serif_bold_italic" name="serif_bold_italic" rows="5" cols="33" readonly></textarea>
+
+    <label for="sans_serif_normal">sans_serif_normal:</label>
+    <textarea id="sans_serif_normal" name="sans_serif_normal" rows="5" cols="33" readonly></textarea>
+
+    <label for="sans_serif_bold">sans_serif_bold:</label>
+    <textarea id="sans_serif_bold" name="sans_serif_bold" rows="5" cols="33" readonly></textarea>
+
+    <label for="sans_serif_italic">sans_serif_italic:</label>
+    <textarea id="sans_serif_italic" name="sans_serif_italic" rows="5" cols="33" readonly></textarea>
+
+    <label for="sans_serif_bold_italic">sans_serif_bold_italic:</label>
+    <textarea id="sans_serif_bold_italic" name="sans_serif_bold_italic" rows="5" cols="33" readonly></textarea>
+
+    <label for="script_normal">script_normal:</label>
+    <textarea id="script_normal" name="script_normal" rows="5" cols="33" readonly></textarea>
+
+    <label for="script_bold">script_bold:</label>
+    <textarea id="script_bold" name="script_bold" rows="5" cols="33" readonly></textarea>
+
+    <label for="fraktur_normal">fraktur_normal:</label>
+    <textarea id="fraktur_normal" name="fraktur_normal" rows="5" cols="33" readonly></textarea>
+
+    <label for="fraktur_bold">fraktur_bold:</label>
+    <textarea id="fraktur_bold" name="fraktur_bold" rows="5" cols="33" readonly></textarea>
+
+    <label for="mono_space_normal">mono_space_normal:</label>
+    <textarea id="mono_space_normal" name="mono_space_normal" rows="5" cols="33" readonly></textarea>
+
+    <label for="double_struck_bold">double_struck_bold:</label>
+    <textarea id="double_struck_bold" name="double_struck_bold" rows="5" cols="33" readonly></textarea>
+
+    <script>
+        var serif_normal = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+        var serif_bold = ["𝐀", "𝐁", "𝐂", "𝐃", "𝐄", "𝐅", "𝐆", "𝐇", "𝐈", "𝐉", "𝐊", "𝐋", "𝐌", "𝐍", "𝐎", "𝐏", "𝐐", "𝐑", "𝐒", "𝐓", "𝐔", "𝐕", "𝐖", "𝐗", "𝐘", "𝐙"]
+        var serif_italic = ["𝐴", "𝐵", "𝐶", "𝐷", "𝐸", "𝐹", "𝐺", "𝐻", "𝐼", "𝐽", "𝐾", "𝐿", "𝑀", "𝑁", "𝑂", "𝑃", "𝑄", "𝑅", "𝑆", "𝑇", "𝑈", "𝑉", "𝑊", "𝑋", "𝑌", "𝑍"]
+        var serif_bold_italic = ["𝑨", "𝑩", "𝑪", "𝑫", "𝑬", "𝑭", "𝑮", "𝑯", "𝑰", "𝑱", "𝑲", "𝑳", "𝑴", "𝑵", "𝑶", "𝑷", "𝑸", "𝑹", "𝑺", "𝑻", "𝑼", "𝑽", "𝑾", "𝑿", "𝒀", "𝒁"]
+        var sans_serif_normal = ["𝖠", "𝖡", "𝖢", "𝖣", "𝖤", "𝖥", "𝖦", "𝖧", "𝖨", "𝖩", "𝖪", "𝖫", "𝖬", "𝖭", "𝖮", "𝖯", "𝖰", "𝖱", "𝖲", "𝖳", "𝖴", "𝖵", "𝖶", "𝖷", "𝖸", "𝖹"]
+        var sans_serif_bold = ["𝗔", "𝗕", "𝗖", "𝗗", "𝗘", "𝗙", "𝗚", "𝗛", "𝗜", "𝗝", "𝗞", "𝗟", "𝗠", "𝗡", "𝗢", "𝗣", "𝗤", "𝗥", "𝗦", "𝗧", "𝗨", "𝗩", "𝗪", "𝗫", "𝗬", "𝗭"]
+        var sans_serif_italic = ["𝘈", "𝘉", "𝘊", "𝘋", "𝘌", "𝘍", "𝘎", "𝘏", "𝘐", "𝘑", "𝘒", "𝘓", "𝘔", "𝘕", "𝘖", "𝘗", "𝘘", "𝘙", "𝘚", "𝘛", "𝘜", "𝘝", "𝘞", "𝘟", "𝘠", "𝘡"]
+        var sans_serif_bold_italic = ["𝘼", "𝘽", "𝘾", "𝘿", "𝙀", "𝙁", "𝙂", "𝙃", "𝙄", "𝙅", "𝙆", "𝙇", "𝙈", "𝙉", "𝙊", "𝙋", "𝙌", "𝙍", "𝙎", "𝙏", "𝙐", "𝙑", "𝙒", "𝙓", "𝙔", "𝙕"]
+        var script_normal = ["𝒜", "ℬ", "𝒞", "𝒟", "ℰ", "ℱ", "𝒢", "ℋ", "ℐ", "𝒥", "𝒦", "ℒ", "ℳ", "𝒩", "𝒪", "𝒫", "𝒬", "ℛ", "𝒮", "𝒯", "𝒰", "𝒱", "𝒲", "𝒳", "𝒴", "𝒵"]
+        var script_bold = ["𝓐", "𝓑", "𝓒", "𝓓", "𝓔", "𝓕", "𝓖", "𝓗", "𝓘", "𝓙", "𝓚", "𝓛", "𝓜", "𝓝", "𝓞", "𝓟", "𝓠", "𝓡", "𝓢", "𝓣", "𝓤", "𝓥", "𝓦", "𝓧", "𝓨", "𝓩"]
+        var fraktur_normal = ["𝔄", "𝔅", "ℭ", "𝔇", "𝔈", "𝔉", "𝔊", "ℌ", "ℑ", "𝔍", "𝔎", "𝔏", "𝔐", "𝔑", "𝔒", "𝔓", "𝔔", "ℜ", "𝔖", "𝔗", "𝔘", "𝔙", "𝔚", "𝔛", "𝔜", "ℨ"]
+        var fraktur_bold = ["𝕬", "𝕭", "𝕮", "𝕯", "𝕰", "𝕱", "𝕲", "𝕳", "𝕴", "𝕵", "𝕶", "𝕷", "𝕸", "𝕹", "𝕺", "𝕻", "𝕼", "𝕽", "𝕾", "𝕿", "𝖀", "𝖁", "𝖂", "𝖃", "𝖄", "𝖅"]
+        var mono_space_normal = ["𝙰", "𝙱", "𝙲", "𝙳", "𝙴", "𝙵", "𝙶", "𝙷", "𝙸", "𝙹", "𝙺", "𝙻", "𝙼", "𝙽", "𝙾", "𝙿", "𝚀", "𝚁", "𝚂", "𝚃", "𝚄", "𝚅", "𝚆", "𝚇", "𝚈", "𝚉"]
+        var double_struck_bold = ["𝔸", "𝔹", "ℂ", "𝔻", "𝔼", "𝔽", "𝔾", "ℍ", "𝕀", "𝕁", "𝕂", "𝕃", "𝕄", "ℕ", "𝕆", "ℙ", "ℚ", "ℝ", "𝕊", "𝕋", "𝕌", "𝕍", "𝕎", "𝕏", "𝕐", "ℤ"]
+        var s_serif_normal = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+        var s_serif_bold = ["𝐚", "𝐛", "𝐜", "𝐝", "𝐞", "𝐟", "𝐠", "𝐡", "𝐢", "𝐣", "𝐤", "𝐥", "𝐦", "𝐧", "𝐨", "𝐩", "𝐪", "𝐫", "𝐬", "𝐭", "𝐮", "𝐯", "𝐰", "𝐱", "𝐲", "𝐳"]
+        var s_serif_italic = ["𝑎", "𝑏", "𝑐", "𝑑", "𝑒", "𝑓", "𝑔", "ℎ", "𝑖", "𝑗", "𝑘", "𝑙", "𝑚", "𝑛", "𝑜", "𝑝", "𝑞", "𝑟", "𝑠", "𝑡", "𝑢", "𝑣", "𝑤", "𝑥", "𝑦", "𝑧"]
+        var s_serif_bold_italic = ["𝒂", "𝒃", "𝒄", "𝒅", "𝒆", "𝒇", "𝒈", "𝒉", "𝒊", "𝒋", "𝒌", "𝒍", "𝒎", "𝒏", "𝒐", "𝒑", "𝒒", "𝒓", "𝒔", "𝒕", "𝒖", "𝒗", "𝒘", "𝒙", "𝒚", "𝒛"]
+        var s_sans_serif_normal = ["𝖺", "𝖻", "𝖼", "𝖽", "𝖾", "𝖿", "𝗀", "𝗁", "𝗂", "𝗃", "𝗄", "𝗅", "𝗆", "𝗇", "𝗈", "𝗉", "𝗊", "𝗋", "𝗌", "𝗍", "𝗎", "𝗏", "𝗐", "𝗑", "𝗒", "𝗓"]
+        var s_sans_serif_bold = ["𝗮", "𝗯", "𝗰", "𝗱", "𝗲", "𝗳", "𝗴", "𝗵", "𝗶", "𝗷", "𝗸", "𝗹", "𝗺", "𝗻", "𝗼", "𝗽", "𝗾", "𝗿", "𝘀", "𝘁", "𝘂", "𝘃", "𝘄", "𝘅", "𝘆", "𝘇"]
+        var s_sans_serif_italic = ["𝘢", "𝘣", "𝘤", "𝘥", "𝘦", "𝘧", "𝘨", "𝘩", "𝘪", "𝘫", "𝘬", "𝘭", "𝘮", "𝘯", "𝘰", "𝘱", "𝘲", "𝘳", "𝘴", "𝘵", "𝘶", "𝘷", "𝘸", "𝘹", "𝘺", "𝘻"]
+        var s_sans_serif_bold_italic = ["𝙖", "𝙗", "𝙘", "𝙙", "𝙚", "𝙛", "𝙜", "𝙝", "𝙞", "𝙟", "𝙠", "𝙡", "𝙢", "𝙣", "𝙤", "𝙥", "𝙦", "𝙧", "𝙨", "𝙩", "𝙪", "𝙫", "𝙬", "𝙭", "𝙮", "𝙯"]
+        var s_script_normal = ["𝒶", "𝒷", "𝒸", "𝒹", "ℯ", "𝒻", "ℊ", "𝒽", "𝒾", "𝒿", "𝓀", "𝓁", "𝓂", "𝓃", "ℴ", "𝓅", "𝓆", "𝓇", "𝓈", "𝓉", "𝓊", "𝓋", "𝓌", "𝓍", "𝓎", "𝓏"]
+        var s_script_bold = ["𝓪", "𝓫", "𝓬", "𝓭", "𝓮", "𝓯", "𝓰", "𝓱", "𝓲", "𝓳", "𝓴", "𝓵", "𝓶", "𝓷", "𝓸", "𝓹", "𝓺", "𝓻", "𝓼", "𝓽", "𝓾", "𝓿", "𝔀", "𝔁", "𝔂", "𝔃"]
+        var s_fraktur_normal = ["𝔞", "𝔟", "𝔠", "𝔡", "𝔢", "𝔣", "𝔤", "𝔥", "𝔦", "𝔧", "𝔨", "𝔩", "𝔪", "𝔫", "𝔬", "𝔭", "𝔮", "𝔯", "𝔰", "𝔱", "𝔲", "𝔳", "𝔴", "𝔵", "𝔶", "𝔷"]
+        var s_fraktur_bold = ["𝖆", "𝖇", "𝖈", "𝖉", "𝖊", "𝖋", "𝖌", "𝖍", "𝖎", "𝖏", "𝖐", "𝖑", "𝖒", "𝖓", "𝖔", "𝖕", "𝖖", "𝖗", "𝖘", "𝖙", "𝖚", "𝖛", "𝖜", "𝖝", "𝖞", "𝖟"]
+        var s_mono_space_normal = ["𝚊", "𝚋", "𝚌", "𝚍", "𝚎", "𝚏", "𝚐", "𝚑", "𝚒", "𝚓", "𝚔", "𝚕", "𝚖", "𝚗", "𝚘", "𝚙", "𝚚", "𝚛", "𝚜", "𝚝", "𝚞", "𝚟", "𝚠", "𝚡", "𝚢", "𝚣"]
+        var s_double_struck_bold = ["𝕒", "𝕓", "𝕔", "𝕕", "𝕖", "𝕗", "𝕘", "𝕙", "𝕚", "𝕛", "𝕜", "𝕝", "𝕞", "𝕟", "𝕠", "𝕡", "𝕢", "𝕣", "𝕤", "𝕥", "𝕦", "𝕧", "𝕨", "𝕩", "𝕪", "𝕫"]
+        var n_serif_normal = ["𝟘", "𝟙", "𝟚", "𝟛", "𝟜", "𝟝", "𝟞", "𝟟", "𝟠", "𝟡"]
+        function cover() {
+            var text = document.getElementById("text").value
+            console.log(document.getElementById("text").value)
+            var serif_normal_text = ""
+            var serif_bold_text = ""
+            var serif_italic_text = ""
+            var serif_bold_italic_text = ""
+            var sans_serif_normal_text = ""
+            var sans_serif_bold_text = ""
+            var sans_serif_italic_text = ""
+            var sans_serif_bold_italic_text = ""
+            var script_normal_text = ""
+            var script_bold_text = ""
+            var fraktur_normal_text = ""
+            var fraktur_bold_text = ""
+            var mono_space_normal_text = ""
+            var double_struck_bold_text = ""
+
+            for (var i = 0; i < text.length; i++) {
+                if (text[i].charCodeAt(0) >= 97 && text[i].charCodeAt(0) <= 122) {
+                    // lowercase letters
+                    serif_normal_text += s_serif_normal[text[i].charCodeAt(0) - 97]
+                    serif_bold_text += s_serif_bold[text[i].charCodeAt(0) - 97]
+                    serif_italic_text += s_serif_italic[text[i].charCodeAt(0) - 97]
+                    serif_bold_italic_text += s_serif_bold_italic[text[i].charCodeAt(0) - 97]
+                    sans_serif_normal_text += s_sans_serif_normal[text[i].charCodeAt(0) - 97]
+                    sans_serif_bold_text += s_sans_serif_bold[text[i].charCodeAt(0) - 97]
+                    sans_serif_italic_text += s_sans_serif_italic[text[i].charCodeAt(0) - 97]
+                    sans_serif_bold_italic_text += s_sans_serif_bold_italic[text[i].charCodeAt(0) - 97]
+                    script_normal_text += s_script_normal[text[i].charCodeAt(0) - 97]
+                    script_bold_text += s_script_bold[text[i].charCodeAt(0) - 97]
+                    fraktur_normal_text += s_fraktur_normal[text[i].charCodeAt(0) - 97]
+                    fraktur_bold_text += s_fraktur_bold[text[i].charCodeAt(0) - 97]
+                    mono_space_normal_text += s_mono_space_normal[text[i].charCodeAt(0) - 97]
+                    double_struck_bold_text += s_double_struck_bold[text[i].charCodeAt(0) - 97]
+                } else if (text[i].charCodeAt(0) >= 65 && text[i].charCodeAt(0) <= 90) {
+                    // capital letter
+                    serif_normal_text += serif_normal[text[i].charCodeAt(0) - 65]
+                    serif_bold_text += serif_bold[text[i].charCodeAt(0) - 65]
+                    serif_italic_text += serif_italic[text[i].charCodeAt(0) - 65]
+                    serif_bold_italic_text += serif_bold_italic[text[i].charCodeAt(0) - 65]
+                    sans_serif_normal_text += sans_serif_normal[text[i].charCodeAt(0) - 65]
+                    sans_serif_bold_text += sans_serif_bold[text[i].charCodeAt(0) - 65]
+                    sans_serif_italic_text += sans_serif_italic[text[i].charCodeAt(0) - 65]
+                    sans_serif_bold_italic_text += sans_serif_bold_italic[text[i].charCodeAt(0) - 65]
+                    script_normal_text += script_normal[text[i].charCodeAt(0) - 65]
+                    script_bold_text += script_bold[text[i].charCodeAt(0) - 65]
+                    fraktur_normal_text += fraktur_normal[text[i].charCodeAt(0) - 65]
+                    fraktur_bold_text += fraktur_bold[text[i].charCodeAt(0) - 65]
+                    mono_space_normal_text += mono_space_normal[text[i].charCodeAt(0) - 65]
+                    double_struck_bold_text += double_struck_bold[text[i].charCodeAt(0) - 65]
+                } else if (text[i].charCodeAt(0) >= 48 && text[i].charCodeAt(0) <= 57) {
+                    serif_normal_text += n_serif_normal[text[i].charCodeAt(0) - 48]
+                    serif_bold_text += n_serif_normal[text[i].charCodeAt(0) - 48]
+                } else {
+                    serif_normal_text += text[i]
+                    serif_bold_text += text[i]
+                    serif_italic_text += text[i]
+                    serif_bold_italic_text += text[i]
+                    sans_serif_normal_text += text[i]
+                    sans_serif_bold_text += text[i]
+                    sans_serif_italic_text += text[i]
+                    sans_serif_bold_italic_text += text[i]
+                    script_normal_text += text[i]
+                    script_bold_text += text[i]
+                    fraktur_normal_text += text[i]
+                    fraktur_bold_text += text[i]
+                    mono_space_normal_text += text[i]
+                    double_struck_bold_text += text[i]
+                }
+            }
+            console.log(serif_bold_text)
+            document.getElementById("serif_normal").value = serif_normal_text
+            document.getElementById("serif_bold").value = serif_bold_text
+            document.getElementById("serif_italic").value = serif_italic_text
+            document.getElementById("serif_bold_italic").value = serif_bold_italic_text
+            document.getElementById("sans_serif_normal").value = sans_serif_normal_text
+
+            document.getElementById("sans_serif_bold").value = sans_serif_bold_text
+            document.getElementById("sans_serif_italic").value = sans_serif_italic_text
+            document.getElementById("sans_serif_bold_italic").value = sans_serif_bold_italic_text
+            document.getElementById("script_normal").value = script_normal_text
+            document.getElementById("script_bold").value = script_bold_text
+            document.getElementById("fraktur_normal").value = fraktur_normal_text
+            document.getElementById("fraktur_bold").value = fraktur_bold_text
+            document.getElementById("mono_space_normal").value = mono_space_normal_text
+            document.getElementById("double_struck_bold").value = double_struck_bold_text
+        }
+    </script>
+</body>
+
+</html>

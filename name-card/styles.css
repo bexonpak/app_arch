@@ -1,0 +1,113 @@
+html,
+body {
+  margin     : 0;
+  padding    : 0;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+body {
+  width          : 100vw;
+  height         : 100vh;
+  position       : relative;
+  display        : flex;
+  justify-content: center;
+  align-items    : center;
+  background     : linear-gradient(to right bottom,
+      #a5e0fb,
+      #ee98f9,
+      #fefd9f);
+}
+
+.glass {
+  font-size              : 90px;
+  font-weight            : bold;
+  background             : linear-gradient(to right, #fefd9f, #a5e0fb, #ee98f9);
+  background-clip        : text;
+  -webkit-background-clip: text;
+  color                  : transparent;
+}
+
+.card {
+  position     : absolute;
+  width        : 600px;
+  height       : 350px;
+  border-radius: 20px;
+  background   : linear-gradient(to right bottom,
+      rgba(255, 255, 255, 0.6),
+      rgba(255, 255, 255, 0.2));
+  backdrop-filter        : blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow             : 20px 20px 40px rgba(0, 0, 0, 0.1);
+  border-top             : 2px solid rgba(255, 255, 255, 0.8);
+  border-left            : 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.content {
+  position      : absolute;
+  bottom        : 0;
+  left          : 0;
+  padding-left  : 24px;
+  padding-bottom: 24px;
+}
+
+.t {
+  color         : #fff;
+  font-size     : 38px;
+  font-weight   : 900;
+  font-family   : monospace, sans-serif;
+  padding-bottom: 18px;
+}
+
+.t span {
+  font-size   : 19px;
+  font-weight : normal;
+  padding-left: 10px;
+  font-weight : 400;
+}
+
+.t3,
+.t4 {
+  display    : inline-block;
+  color      : #fff;
+  margin     : 0;
+  padding    : 0;
+  font-family: monospace, sans-serif;
+}
+
+.t4 a {
+  color          : #fff;
+  text-decoration: none;
+}
+
+.t4 a:active {
+  color          : #fff;
+  text-decoration: none;
+}
+
+.t4 a:visited {
+  color          : #fff;
+  text-decoration: none;
+}
+
+.t3 {
+  width: 85px;
+}
+
+.logo {
+  position: absolute;
+  right   : 12px;
+  top     : 18px;
+  width   : 200px;
+}
+
+path.st0 {
+  fill        : #fff;
+  fill-opacity: 0.8;
+  filter      : url(#Gaussian_Blur)
+}
+
+rect.st0 {
+  fill        : #fff;
+  fill-opacity: 0.8;
+  filter      : url(#Gaussian_Blur)
+}
