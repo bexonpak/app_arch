@@ -4,7 +4,7 @@ const HOST_NAME = location.host
 const VERSION_NAME = 'CJ-v4'
 
 // data version
-const DATA_VERSION_NAME = 'DATA-v2'
+const DATA_VERSION_NAME = 'DATA-v3'
 const CACHE_NAME = HOST_NAME + '-' + VERSION_NAME
 const DATA_CACHE_NAME = HOST_NAME + '-' + DATA_VERSION_NAME
 

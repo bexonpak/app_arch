@@ -108,10 +108,25 @@ window.onload = () => {
                 }
             },
             pic(url) {
-                alert(url)
+                document.getElementById('alert').style.setProperty('--show-chai-zi', 'block')
+                document.getElementById('chai-img').setAttribute('src', url)
+            },
+            dimiss() {
+                document.getElementById('alert').style.setProperty('--show-chai-zi', 'none')
+                document.getElementById('chai-img').removeAttribute('src')
+            },
+            mf(han) {
+                let urlMF = "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=" + han
+                document.getElementById('alertMF').style.setProperty('--show-mfcc', 'block')
+                document.getElementById('mfcc').setAttribute('src', urlMF)
+            },
+            dimissMF() {
+                document.getElementById('alertMF').style.setProperty('--show-mfcc', 'none')
+                document.getElementById('mfcc').removeAttribute('src')
             }
         }
     })
+
 
 
 }
