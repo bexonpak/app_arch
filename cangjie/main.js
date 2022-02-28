@@ -108,14 +108,19 @@ window.onload = () => {
                 }
             },
             pic(url) {
+                document.getElementById('alertMF').style.setProperty('--show-mfcc', 'none')
+                document.getElementById('mfcc').removeAttribute('src')
                 document.getElementById('alert').style.setProperty('--show-chai-zi', 'block')
                 document.getElementById('chai-img').setAttribute('src', url)
+                document.getElementById('chai-link').setAttribute('href', url)
             },
             dimiss() {
                 document.getElementById('alert').style.setProperty('--show-chai-zi', 'none')
                 document.getElementById('chai-img').removeAttribute('src')
             },
             mf(han) {
+                document.getElementById('alert').style.setProperty('--show-chai-zi', 'none')
+                document.getElementById('chai-img').removeAttribute('src')
                 let urlMF = "https://humanum.arts.cuhk.edu.hk/Lexis/lexi-mf/search.php?word=" + han
                 document.getElementById('alertMF').style.setProperty('--show-mfcc', 'block')
                 document.getElementById('mfcc').setAttribute('src', urlMF)
