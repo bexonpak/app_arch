@@ -1,0 +1,7 @@
+node_modules/
+nss*
+dist/
+app.log
+**/.DS_Store
+dump.rdb
+web/
